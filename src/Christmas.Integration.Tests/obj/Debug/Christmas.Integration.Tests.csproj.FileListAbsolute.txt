@@ -1,0 +1,12 @@
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\Christmas.Integration.Tests.dll
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\Christmas.Integration.Tests.pdb
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\nunit.framework.dll
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\nunit.framework.pdb
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\nunit.framework.xml
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\obj\Debug\Christmas.Integration.Tests.csprojAssemblyReference.cache
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\obj\Debug\Christmas.Integration.Tests.csproj.CopyComplete
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\obj\Debug\Christmas.Integration.Tests.dll
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\obj\Debug\Christmas.Integration.Tests.pdb
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\Christmas.dll
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\Christmas.pdb
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\TestData\input.txt

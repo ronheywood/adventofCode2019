@@ -38,4 +38,4 @@ C:\Kata\AdventOfCode\2019\src\Christmas.NUnit.Tests\bin\Debug\Christmas.dll
 C:\Kata\AdventOfCode\2019\src\Christmas.NUnit.Tests\bin\Debug\Christmas.pdb
 C:\Kata\AdventOfCode\2019\src\Christmas.NUnit.Tests\obj\Debug\Christmas.NUnit.Tests.dll
 C:\Kata\AdventOfCode\2019\src\Christmas.NUnit.Tests\obj\Debug\Christmas.NUnit.Tests.pdb
-C:\Kata\AdventOfCode\2019\src\Christmas.NUnit.Tests\bin\Debug\TestData\input.txt
+C:\Kata\AdventOfCode\2019\src\Christmas.NUnit.Tests\bin\Debug\TestData\stream-reader-test.txt
