@@ -89,6 +89,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Day2\AdderProgram.cs" />
+    <Compile Include="Day2\AdderProgramTests.cs" />
+    <Compile Include="Day2\IntCodeValidatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Day1\FuelAdderUpperTest.cs" />
   </ItemGroup>
