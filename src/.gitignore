@@ -10,8 +10,8 @@
 target/
 **/bin/
 **/obj/
-src/Christmas.NUnit.Tests/obj/*
-src/Christmas.NUnit.Tests/bin/*
+Christmas*/obj/*
+Christmas*/bin/*
 php/vendor
 /js/**/node_modules
 csharp/dotnet/Kata/.vs
