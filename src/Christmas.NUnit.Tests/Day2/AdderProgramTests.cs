@@ -28,12 +28,19 @@ namespace Christmas.NUnit.Tests.Day2
         [TestCase("1,0,0,0","2,0,0,0")]
         [TestCase("1,5,5,3,99,10","1,5,5,20,99,10")]
         [TestCase("1,5,5,0,99,10","20,5,5,0,99,10")]
-        [TestCase("1,5,5,4,99,10","1,5,5,4,20,10")]
+
         public void It_adds_values_from_specified_positions_and_updates_another_position(string input, string expected)
         {
             var a = new AdderProgram(new IntCodeValidator());
             var answer = a.Process(input);
             Assert.That(answer, Is.EqualTo(expected), "Some useful error message");
+        }
+        [Test]
+        public void It_accepts_a_start_index_and_runs_program_from_there()
+        {
+            var input = "1,5,5,0,1,1,2,9,99,0";
+            var expected = "1,5,5,0,1,1,2,9,99,10";
+            Assert.That(new AdderProgram(new IntCodeValidator()).Process(input,4), Is.EqualTo(expected));
         }
     }
 

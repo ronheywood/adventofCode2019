@@ -48,25 +48,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Day1\Day1IntegrationTest.cs" />
+    <Compile Include="Day2\Day2IntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Christmas.NUnit.Tests\Christmas.NUnit.Tests.csproj">
+      <Project>{17D05582-5877-4157-AB25-43D75D118B1D}</Project>
+      <Name>Christmas.NUnit.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Christmas\Christmas.csproj">
       <Project>{E65F031B-1783-4D27-9D85-0C8509D1AB41}</Project>
       <Name>Christmas</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestData\day2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestData\input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Day2\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

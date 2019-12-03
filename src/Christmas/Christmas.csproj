@@ -48,7 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Day1\FuelAdderUpper.cs" />
+    <Compile Include="Day2\AdderProgram.cs" />
+    <Compile Include="Day2\IIntCodeProgram.cs" />
     <Compile Include="Day2\IntCodeValidator.cs" />
+    <Compile Include="Day2\MultiplierProgram.cs" />
+    <Compile Include="Day2\RecursiveProgram.cs" />
     <Compile Include="Helpers\AdventStringConverter.cs" />
     <Compile Include="Helpers\IStringConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
