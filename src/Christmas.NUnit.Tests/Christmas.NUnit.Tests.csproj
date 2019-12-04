@@ -95,7 +95,6 @@
     <Compile Include="Day2\MultiplierProgramTests.cs" />
     <Compile Include="Day3\WireTest.cs" />
     <Compile Include="Day4\PasswordValidationTests.cs" />
-    <Compile Include="Day4\ValidPassswordFilter.cs" />
     <Compile Include="Day4\ValidPasswordFilterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Day1\FuelAdderUpperTest.cs" />
