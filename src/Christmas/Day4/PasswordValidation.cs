@@ -40,7 +40,7 @@ namespace Christmas.Day4
             if (i1.ToString() != password) return false;
             
             var charArray = password.ToCharArray();
-            return !charArray.Where((t, i) => charArray.Length!=i+1 && t > charArray[i+1]).Any();
+            return !charArray.Where((t, i) =>  i > 0 && t < charArray[i-1]).Any();
         }
     }
 
@@ -49,7 +49,7 @@ namespace Christmas.Day4
         public virtual bool ValidateAdjacent(string password)
         {
             var charArray = password.ToCharArray();
-            return charArray.Where((t, i) => charArray.Length!=i+1 && t == charArray[i+1]).Any();
+            return charArray.Where((t, i) => i > 0 && t == charArray[i-1]).Any();
         }
     }
 }
