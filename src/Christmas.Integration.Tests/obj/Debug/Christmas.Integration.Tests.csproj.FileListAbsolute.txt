@@ -10,3 +10,13 @@ C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\obj\Debug\Christmas.In
 C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\obj\Debug\Christmas.Integration.Tests.csproj.CopyComplete
 C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\obj\Debug\Christmas.Integration.Tests.dll
 C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\obj\Debug\Christmas.Integration.Tests.pdb
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\xunit.runner.utility.desktop.dll
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\xunit.abstractions.dll
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\TestData\sample.txt
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\TestData\day2.unit.txt
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\TestData\day2.txt
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\Christmas.NUnit.Tests.dll
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\Christmas.NUnit.Tests.pdb
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\Christmas.NUnit.Tests.dll.config
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\TestData\day3.txt
