@@ -54,6 +54,7 @@
     <Compile Include="Day2\MultiplierProgram.cs" />
     <Compile Include="Day2\RecursiveProgram.cs" />
     <Compile Include="Day3\Wire.cs" />
+    <Compile Include="Day4\PasswordValidation.cs" />
     <Compile Include="Helpers\AdventStringConverter.cs" />
     <Compile Include="Helpers\IStringConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
