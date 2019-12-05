@@ -69,5 +69,10 @@ namespace Christmas.NUnit.Tests.Day2
             Assert.That(i2, Is.EqualTo(1));
             Assert.That(pointer, Is.EqualTo(2));
         }
+        [TestCase("1,1,2,3,99",0,1)]
+        public void Should_validate_op_code(string program, int startIndex,int expected)
+        {
+            Assert.That(new IntCodeValidator().ValidateProgramConfiguration(program,startIndex,expected), Is.True);
+        }
     }
 }

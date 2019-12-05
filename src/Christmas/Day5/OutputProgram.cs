@@ -16,8 +16,8 @@ namespace Christmas.Day5
         public string Process(string program, int startIndex = 0)
         {
             if (!_intCodeValidator.Validate(program)) throw new Exception("Program input is invalid");
+            _intCodeValidator.ValidateProgramConfiguration(program, startIndex, 4);
             var intList = _intCodeValidator.SplitString(program).ToArray();
-            if (intList[startIndex] != 4) throw new Exception("Invalid Op Code");
             return intList[startIndex+1].ToString();
         }
 

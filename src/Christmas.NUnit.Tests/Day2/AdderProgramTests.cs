@@ -1,5 +1,7 @@
 ﻿using System;
 using Christmas.Day2;
+using Christmas.Day5;
+using Christmas.NUnit.Tests.Day5;
 using NUnit.Framework;
 
 namespace Christmas.NUnit.Tests.Day2
@@ -18,12 +20,22 @@ namespace Christmas.NUnit.Tests.Day2
         }
         [TestCase("5,1,2,3")]
         [TestCase("11,1,2,3")]
+        [TestCase("112,1,2,3")]
         public void Should_expect_opcode_at_position_0_to_be_1(string input)
         {
             var a = new AdderProgram(new IntCodeValidator());
-            var ex = Assert.Throws<Exception>(() => a.Process(input));
-            Assert.That(ex.Message,Does.Contain("Invalid input: op code (first integer) must be 1"));
+            var ex = Assert.Throws<InvalidOpCodeException>(() => a.Process(input));
+            Assert.That(ex.Message,Does.Contain("Invalid input: op code (first integer)"));
             Assert.DoesNotThrow(() => a.Process("1,1,2,3"));
+        }
+        [TestCase("11101,1,2,3,99")]
+        [TestCase("11101,1,2,3,99")]
+        [TestCase("01,1,2,3,99")]
+        [TestCase("101,1,2,3,99")]
+        public void Should_validate_in_program_configuration(string input)
+        {
+            var a = new AdderProgram(new IntCodeValidator());
+            Assert.DoesNotThrow(() => a.Process(input));
         }
         [TestCase("1,0,0,0","2,0,0,0")]
         [TestCase("1,5,5,3,99,10","1,5,5,20,99,10")]

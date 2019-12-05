@@ -1,5 +1,7 @@
 ﻿using System;
 using Christmas.Day2;
+using Christmas.Day5;
+using Christmas.NUnit.Tests.Day5;
 using NUnit.Framework;
 
 namespace Christmas.NUnit.Tests.Day2
@@ -17,12 +19,22 @@ namespace Christmas.NUnit.Tests.Day2
         }
         [TestCase("1,1")]
         [TestCase("22,1")]
+        [TestCase("222,1")]
         public void Should_validate_op_code_is_two(string input)
         {
             var validator = new IntCodeValidator();
             var m = new MultiplierProgram(validator);
-            var ex = Assert.Throws<Exception>(() => m.Process(input));
-            Assert.That(ex.Message, Is.EqualTo("Invalid input: op code (first digit) must be 2"));
+            var ex = Assert.Throws<InvalidOpCodeException>(() => m.Process(input));
+            Assert.That(ex.Message, Is.EqualTo("Invalid input: op code (first integer)"));
+        }
+        [TestCase("11102,1,2,3,99")]
+        [TestCase("11002,1,2,3,99")]
+        [TestCase("02,1,2,3,99")]
+        [TestCase("102,1,2,3,99")]
+        public void Should_validate_in_program_configuration(string input)
+        {
+            var m = new MultiplierProgram(new IntCodeValidator());
+            Assert.DoesNotThrow(() => m.Process(input));
         }
         [TestCase("2,0,0,0","4,0,0,0")]
         [TestCase("2,1,1,3","2,1,1,1")]

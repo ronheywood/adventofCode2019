@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Christmas.Day5;
+using NUnit.Framework.Constraints;
 
 namespace Christmas.Day2
 {
@@ -9,6 +11,7 @@ namespace Christmas.Day2
         void ExtractOrdinals(IEnumerable<int> intList, out int o, out int o1, out int o2, int startIndex = 0);
         IEnumerable<int> SplitString(string input);
         string Join(IEnumerable<int> input);
+        bool ValidateProgramConfiguration(string program, int startIndex, int expected);
     }
 
     public class IntCodeValidator : IIntCodeValidator
@@ -28,5 +31,12 @@ namespace Christmas.Day2
         public IEnumerable<int> SplitString(string input) => input.Split(',').Select(s => int.TryParse(s, out var number) ? number : 0);
 
         public string Join(IEnumerable<int> input) => string.Join(",",input);
+
+        public bool ValidateProgramConfiguration(string program, int startIndex, int expected)
+        {
+            var configuration = Join(SplitString(program).Skip(startIndex).Take(4).ToArray() );
+            if (ProgramConfiguration.GetOpCode(configuration) != expected) throw new InvalidOpCodeException("Invalid input: op code (first integer)");
+            return true;
+        }
     }
 }

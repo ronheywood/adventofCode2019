@@ -19,13 +19,24 @@ namespace Christmas.NUnit.Tests.Day5
             Assert.Throws<Exception>(()=>outputProgram.Process(program));
             A.CallTo(() => validatorSpy.Validate(program)).MustHaveHappened();
         }
-        [Test]
-        public void Should_validate_op_code_4()
+        [TestCase("1,0,99")]
+        [TestCase("101,0,99")]
+        [TestCase("144,0,99")]
+        [TestCase("114,0,99")]
+        public void Should_validate_op_code_4(string program)
         {
             var outputProgram = new OutputProgram(new IntCodeValidator());
-            var program = "1,0,99";
-            var ex = Assert.Throws<Exception>(() => outputProgram.Process(program));
-            Assert.That(ex.Message, Does.Contain("Invalid Op Code"));
+            var ex = Assert.Throws<InvalidOpCodeException>(() => outputProgram.Process(program));
+            Assert.That(ex.Message, Does.Contain("Invalid input: op code (first integer)"));
+        }
+        [TestCase("4,0,99")]
+        [TestCase("104,0,99")]
+        [TestCase("1004,0,99")]
+        [TestCase("04,0,99")]
+        public void Should_validate_op_code_in_program_configuration(string program)
+        {
+            var outputProgram = new OutputProgram(new IntCodeValidator());
+            Assert.DoesNotThrow(() => outputProgram.Process(program));
         }
         [TestCase("4,1,99","1")]
         [TestCase("4,-5,99,0,0,0","-5")]

@@ -21,11 +21,10 @@ namespace Christmas.Day5
         public string Process(string program, int input, int startIndex)
         {
             if (!_intCodeValidator.Validate(program)) throw new Exception("Invalid program");
+            _intCodeValidator.ValidateProgramConfiguration(program, startIndex, 3);
             var intList = _intCodeValidator.SplitString(program).ToArray();
-            if (intList[0]!=3) throw new Exception("Invalid Op Code");
 
-            _intCodeValidator.ExtractOrdinals(intList,out int target, out int i2,out int i3, startIndex);
-
+            var target = intList[startIndex+1];
             intList[target] = input;
             return _intCodeValidator.Join(intList);
         }

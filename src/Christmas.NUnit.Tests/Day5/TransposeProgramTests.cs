@@ -24,8 +24,17 @@ namespace Christmas.NUnit.Tests.Day5
         {
             var program = "1,0,99,0";
             var transposeProgram = new TransposeProgram(new IntCodeValidator());
-            var ex = Assert.Throws<Exception>(()=>transposeProgram.Process(program,1,0));
-            Assert.That(ex.Message, Does.Contain("Invalid Op Code"));
+            var ex = Assert.Throws<InvalidOpCodeException>(()=>transposeProgram.Process(program,1,0));
+            Assert.That(ex.Message, Is.EqualTo("Invalid input: op code (first integer)"));
+        }
+        [TestCase("3,0,99")]
+        [TestCase("103,0,99")]
+        [TestCase("1003,0,99")]
+        [TestCase("03,0,99")]
+        public void Should_validate_op_code_in_program_configuration(string program)
+        {
+            var transposeProgram = new TransposeProgram(new IntCodeValidator());
+            Assert.DoesNotThrow(() => transposeProgram.Process(program,1,0));
         }
         [TestCase("3,3,99,0",1,"3,3,99,1")]
         [TestCase("3,3,99,0",10,"3,3,99,10")]

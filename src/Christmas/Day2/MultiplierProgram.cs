@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Christmas.Day5;
 
 namespace Christmas.Day2
 {
@@ -15,9 +16,9 @@ namespace Christmas.Day2
         public string Process(string program, int startIndex = 0)
         {
             if (!_validator.Validate(program))  throw new Exception("");
+            _validator.ValidateProgramConfiguration(program, startIndex, 2);
             var intList = _validator.SplitString(program).ToArray();
             
-            if (intList[startIndex]!=2) throw new Exception("Invalid input: op code (first digit) must be 2");
             _validator.ExtractOrdinals(intList, out var i1, out var i2, out var pointer,startIndex:startIndex);
 
             intList[pointer] = intList[i1] * intList[i2];
