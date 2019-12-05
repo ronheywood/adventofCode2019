@@ -57,6 +57,8 @@
     <Compile Include="Day4\PasswordSequencePairedValidation.cs" />
     <Compile Include="Day4\PasswordValidation.cs" />
     <Compile Include="Day4\ValidPasswordFilter.cs" />
+    <Compile Include="Day5\OutputProgram.cs" />
+    <Compile Include="Day5\TransposeProgram.cs" />
     <Compile Include="Helpers\AdventStringConverter.cs" />
     <Compile Include="Helpers\IStringConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

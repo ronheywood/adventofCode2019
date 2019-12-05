@@ -2,6 +2,7 @@
 {
     public interface IIntCodeProgram
     {
-        string Process(string input, int startIndex = 0);
+        string Process(string program, int startIndex = 0);
+        string Process(string program, int input, int startIndex);
     }
 }

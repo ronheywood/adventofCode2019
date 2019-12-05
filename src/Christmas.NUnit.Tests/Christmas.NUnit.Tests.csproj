@@ -96,6 +96,8 @@
     <Compile Include="Day3\WireTest.cs" />
     <Compile Include="Day4\PasswordValidationTests.cs" />
     <Compile Include="Day4\ValidPasswordFilterTests.cs" />
+    <Compile Include="Day5\OutputProgramTests.cs" />
+    <Compile Include="Day5\TransposeProgramTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Day1\FuelAdderUpperTest.cs" />
   </ItemGroup>

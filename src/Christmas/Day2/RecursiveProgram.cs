@@ -15,18 +15,22 @@ namespace Christmas.Day2
             _adder = new AdderProgram(_validator);
             _multiplier = new MultiplierProgram(_validator);
         }
-        public string Process(string input, int startIndex = 0)
+        public string Process(string program, int startIndex = 0)
         {
-            var output = input;
+            var output = program;
             while (true)
             {
                 var intList = _validator.SplitString(output).ToArray();
                 var opCode = intList[startIndex];
                 if (opCode == 99) return output;
-                var program = (opCode == 1) ? _adder : (opCode==2) ? _multiplier : throw new Exception($"Unexpected op code {opCode} at position {startIndex}");
-                output = program.Process(output, startIndex);
+                var logic = (opCode == 1) ? _adder : (opCode==2) ? _multiplier : throw new Exception($"Unexpected op code {opCode} at position {startIndex}");
+                output = logic.Process(output, startIndex);
                 startIndex += 4;
             }
+        }
+        public string Process(string program, int input, int startIndex)
+        {
+            throw new NotImplementedException();
         }
 
         public Tuple<int,int> GetForOutput(string program, int outputValue)
