@@ -23,7 +23,7 @@ namespace Christmas.Integration.Tests.Day2
                 modified[2] = 2;
                 input = validator.Join(modified);
 
-                var actual = new RecursiveProgram(new IntCodeValidator()).Process(input);
+                var actual = new RecursiveProgram(new IntCodeValidator(),new IntCodeProgramFactory()).Process(input);
                 Assert.That(validator.SplitString(actual).First(), Is.EqualTo(4690667));
             }
         }
@@ -35,7 +35,7 @@ namespace Christmas.Integration.Tests.Day2
             {
                 var input = sr.ReadToEnd();
                 
-                var (item1, item2) = new RecursiveProgram(new IntCodeValidator()).GetForOutput(input,19690720);
+                var (item1, item2) = new RecursiveProgram(new IntCodeValidator(),new IntCodeProgramFactory()).GetForOutput(input,19690720);
                 var calculated = 100 * item1 + item2;
                 Assert.That(calculated, Is.EqualTo(6255));
             }

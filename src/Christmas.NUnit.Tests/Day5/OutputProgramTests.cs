@@ -38,9 +38,9 @@ namespace Christmas.NUnit.Tests.Day5
             var outputProgram = new OutputProgram(new IntCodeValidator());
             Assert.DoesNotThrow(() => outputProgram.Process(program));
         }
-        [TestCase("4,1,99","1")]
-        [TestCase("4,-5,99,0,0,0","-5")]
-        [TestCase("4,27,99,0,0,0","27")]
+        [TestCase("4,0,99","4")]
+        [TestCase("4,3,99,-5,0,0","-5")]
+        [TestCase("4,4,99,-5,27,0","27")]
         public void Should_return_value_at_position(string program, string expected)
         {
             var outputProgram = new OutputProgram(new IntCodeValidator());
@@ -50,7 +50,7 @@ namespace Christmas.NUnit.Tests.Day5
         public void Should_run_program_from_start_position()
         {
             var outputProgram = new OutputProgram(new IntCodeValidator());
-            var program = "1,2,3,4,99,4,10,99";
+            var program = "1,2,3,4,99,4,10,99,0,0,10";
             Assert.That(outputProgram.Process(program,5),Is.EqualTo("10"));
         }
     }

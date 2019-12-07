@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Christmas.Day2;
+using FakeItEasy;
 using NUnit.Framework;
 
 namespace Christmas.NUnit.Tests.Day2
@@ -37,12 +38,29 @@ namespace Christmas.NUnit.Tests.Day2
         [TestCase("1,1,1,4,99,5,6,0,99","30,1,1,4,2,5,6,0,99")]
         public void Program_should_iterate_until_opcode_99(string input, string expected)
         {
-            var actual = new RecursiveProgram(new IntCodeValidator()).Process(input);
+            var actual = new RecursiveProgram(new IntCodeValidator(),new IntCodeProgramFactory()).Process(input);
             Assert.That(actual, Is.EqualTo(expected));
+        }
+        [Test]
+        public void Program_should_get_program_from_factory()
+        {
+            var program = "1,0,0,3,99";
+            var intcodeProgramFactory = A.Fake<IIntcodeProgramFactory>();
+            A.CallTo(() => intcodeProgramFactory.GetProgram(1)).Returns(new AdderProgram(new IntCodeValidator()));
+            new RecursiveProgram(new IntCodeValidator(),intcodeProgramFactory).Process(program);
+            A.CallTo(() => intcodeProgramFactory.GetProgram(1)).MustHaveHappened();
+        }
+        [Test]
+        public void Program_should_iterate_using_program_value_length_configuration([Random(1,255,3)] int diagnosticSystem)
+        {
+            var program = "3,0,4,0,99";
+            var diagnostics = new RecursiveProgram(new IntCodeValidator(), new IntCodeProgramFactory());
+            var output = diagnostics.RunDiagnostics(diagnosticSystem, program);
+            Assert.That(output, Is.EqualTo(diagnosticSystem.ToString()));
         }
         [Ignore("Slow test")]
         [Test]
-        public void Program_can_determine_input_pair_that_produces__desired_ouput()
+        public void Program_can_determine_input_pair_that_produces_desired_ouput()
         {
             var program = string.Empty;
             using (var sr = new StreamReader(TestContext.CurrentContext.WorkDirectory + "\\TestData\\day2.unit.txt"))
@@ -54,7 +72,7 @@ namespace Christmas.NUnit.Tests.Day2
             var expectedVerb = 2;
             var outputValue = 3500;
 
-            var tuple = new RecursiveProgram(new IntCodeValidator()).GetForOutput(program,outputValue);
+            var tuple = new RecursiveProgram(new IntCodeValidator(), new IntCodeProgramFactory()).GetForOutput(program,outputValue);
             Assert.That(tuple.Item1, Is.EqualTo(expectedNoun));
             Assert.That(tuple.Item2, Is.EqualTo(expectedVerb));
         }

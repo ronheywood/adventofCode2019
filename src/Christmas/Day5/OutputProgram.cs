@@ -8,6 +8,8 @@ namespace Christmas.Day5
     {
         private readonly IIntCodeValidator _intCodeValidator;
 
+        public int InstructionLength => 2;
+
         public OutputProgram(IIntCodeValidator intCodeValidator)
         {
             _intCodeValidator = intCodeValidator;
@@ -18,7 +20,8 @@ namespace Christmas.Day5
             if (!_intCodeValidator.Validate(program)) throw new Exception("Program input is invalid");
             _intCodeValidator.ValidateProgramConfiguration(program, startIndex, 4);
             var intList = _intCodeValidator.SplitString(program).ToArray();
-            return intList[startIndex+1].ToString();
+            var position = intList[startIndex + 1];
+            return intList[position].ToString();
         }
 
         public string Process(string program, int input, int startIndex)

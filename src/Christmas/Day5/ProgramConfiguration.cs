@@ -8,10 +8,10 @@ namespace Christmas.Day5
     {
         public static int GetOpCode(string program)
         {
-            var config = GetProgramConfigInt(program);
-            if (config < 100) return config;
+            var programConfiguration = GetProgramConfigInt(program);
+            if (programConfiguration < 100) return programConfiguration;
 
-            return int.TryParse(config.ToString().Substring(config.ToString().Length -2, 2), out var number) ? number : throw new InvalidOpCodeException("OP code was not numeric");
+            return int.TryParse(programConfiguration.ToString().Substring(programConfiguration.ToString().Length -2, 2), out var number) ? number : throw new InvalidOpCodeException("OP code was not numeric");
         }
 
         private static int GetProgramConfigInt(string program)

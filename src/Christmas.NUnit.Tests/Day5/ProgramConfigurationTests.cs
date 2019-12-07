@@ -1,4 +1,6 @@
-﻿using Christmas.Day5;
+﻿using System;
+using Christmas.Day2;
+using Christmas.Day5;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 

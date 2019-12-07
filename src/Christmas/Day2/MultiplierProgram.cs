@@ -8,6 +8,8 @@ namespace Christmas.Day2
     {
         private readonly IIntCodeValidator _validator;
 
+        public int InstructionLength => 4;
+
         public MultiplierProgram(IIntCodeValidator validator)
         {
             _validator = validator;

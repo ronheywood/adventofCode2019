@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Linq;
+using Christmas.Day5;
+using NUnit.Framework.Constraints;
 
 namespace Christmas.Day2
 {
     public class RecursiveProgram : IIntCodeProgram
     {
         private readonly IIntCodeValidator _validator;
+        private readonly IIntcodeProgramFactory _intcodeProgramFactory;
         private IIntCodeProgram _adder;
         private IIntCodeProgram _multiplier;
+        private int _systemIdentifier;
 
-        public RecursiveProgram(IIntCodeValidator validator)
+        public int InstructionLength => 0;
+
+        public RecursiveProgram(IIntCodeValidator validator, IIntcodeProgramFactory intcodeProgramFactory)
         {
             _validator = validator;
+            _intcodeProgramFactory = intcodeProgramFactory;
             _adder = new AdderProgram(_validator);
             _multiplier = new MultiplierProgram(_validator);
         }
@@ -21,11 +28,12 @@ namespace Christmas.Day2
             while (true)
             {
                 var intList = _validator.SplitString(output).ToArray();
-                var opCode = intList[startIndex];
+                var opCode = ProgramConfiguration.GetOpCode( intList[startIndex].ToString() );
                 if (opCode == 99) return output;
-                var logic = (opCode == 1) ? _adder : (opCode==2) ? _multiplier : throw new Exception($"Unexpected op code {opCode} at position {startIndex}");
-                output = logic.Process(output, startIndex);
-                startIndex += 4;
+                var logic = _intcodeProgramFactory.GetProgram(opCode);
+                output = (opCode==3) ? logic.Process(output,_systemIdentifier, startIndex) : logic.Process(output, startIndex);
+                if (opCode == 4) return output;
+                startIndex += logic.InstructionLength;
             }
         }
         public string Process(string program, int input, int startIndex)
@@ -51,6 +59,12 @@ namespace Christmas.Day2
                 }
             }
             throw new Exception("Program did not resolve for inputs up to 100");
+        }
+
+        public string RunDiagnostics(int systemIdentifier, string diagnosticProgram)
+        {
+            _systemIdentifier = systemIdentifier;
+            return Process(diagnosticProgram);
         }
     }
 }

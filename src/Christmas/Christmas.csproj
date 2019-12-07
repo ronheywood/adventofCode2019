@@ -50,6 +50,8 @@
     <Compile Include="Day1\FuelAdderUpper.cs" />
     <Compile Include="Day2\AdderProgram.cs" />
     <Compile Include="Day2\IIntCodeProgram.cs" />
+    <Compile Include="Day2\IIntcodeProgramFactory.cs" />
+    <Compile Include="Day2\IntCodeProgramFactory.cs" />
     <Compile Include="Day2\IntCodeValidator.cs" />
     <Compile Include="Day2\MultiplierProgram.cs" />
     <Compile Include="Day2\RecursiveProgram.cs" />
