@@ -12,6 +12,7 @@ namespace Christmas.Day2
         private IIntCodeProgram _adder;
         private IIntCodeProgram _multiplier;
         private int _systemIdentifier;
+        private string _diagnosticCode;
 
         public int InstructionLength => 0;
 
@@ -31,8 +32,18 @@ namespace Christmas.Day2
                 var opCode = ProgramConfiguration.GetOpCode( intList[startIndex].ToString() );
                 if (opCode == 99) return output;
                 var logic = _intcodeProgramFactory.GetProgram(opCode);
-                output = (opCode==3) ? logic.Process(output,_systemIdentifier, startIndex) : logic.Process(output, startIndex);
-                if (opCode == 4) return output;
+
+                if (opCode == 4)
+                {
+                    _diagnosticCode = logic.Process(output, startIndex);
+                }
+                else
+                {
+                    output = (opCode == 3)
+                        ? logic.Process(output, _systemIdentifier, startIndex)
+                        : logic.Process(output, startIndex);
+                }
+
                 startIndex += logic.InstructionLength;
             }
         }
@@ -63,8 +74,10 @@ namespace Christmas.Day2
 
         public string RunDiagnostics(int systemIdentifier, string diagnosticProgram)
         {
+            _diagnosticCode = string.Empty;
             _systemIdentifier = systemIdentifier;
-            return Process(diagnosticProgram);
+            var programResult = Process(diagnosticProgram);
+            return _diagnosticCode;
         }
     }
 }

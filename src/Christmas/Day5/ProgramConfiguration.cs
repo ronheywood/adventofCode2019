@@ -14,16 +14,17 @@ namespace Christmas.Day5
             return int.TryParse(programConfiguration.ToString().Substring(programConfiguration.ToString().Length -2, 2), out var number) ? number : throw new InvalidOpCodeException("OP code was not numeric");
         }
 
-        private static int GetProgramConfigInt(string program)
+        private static int GetProgramConfigInt(string program,int startIndex = 0)
         {
-            return new IntCodeValidator().SplitString(program).First();
+            return new IntCodeValidator().SplitString(program).Skip(startIndex).First();
         }
 
         public static void GetParameterMode(string program, out ParameterMode position1,
             out ParameterMode position2,
-            out ParameterMode position3)
+            out ParameterMode position3,
+            int startIndex = 0)
         {
-            var charArray = GetProgramConfigInt(program).ToString().ToCharArray();
+            var charArray = GetProgramConfigInt(program,startIndex).ToString().ToCharArray();
             position1 =  ParameterMode.Positional;
             position2 =  ParameterMode.Positional;
             position3 =  ParameterMode.Positional;

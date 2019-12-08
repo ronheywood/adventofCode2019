@@ -23,8 +23,10 @@ namespace Christmas.Day2
             
             var intList = _validator.SplitString(program).ToArray();
             _validator.ExtractOrdinals(intList, out var i1, out var i2, out var pointer,startIndex:startIndex);
-
-            intList[pointer] = intList[i1] + intList[i2];
+            ProgramConfiguration.GetParameterMode(program, out var arg1Mode, out var arg2Mode, out var writeParameterMode,startIndex: startIndex);
+            var arg1 = (arg1Mode == ParameterMode.Immediate) ? intList[startIndex + 1] : intList[i1];
+            var arg2 = (arg2Mode == ParameterMode.Immediate) ? intList[startIndex + 2] : intList[i2];
+            intList[pointer] = arg1 + arg2;
             return _validator.Join(intList);
         }
 

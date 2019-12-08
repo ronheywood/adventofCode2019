@@ -57,5 +57,15 @@ namespace Christmas.NUnit.Tests.Day5
             ProgramConfiguration.GetParameterMode(program, out var ignored, out var unused, out var writeParameterMode);
             Assert.That(writeParameterMode,Is.EqualTo(ParameterMode.Positional));
         }
+        [Test]
+        public void Should_evaluate_program_from_start_index()
+        {
+            var program = "101,5,1,5,99,0,1101,5,1,11,99,0";
+            ProgramConfiguration.GetParameterMode(program, out var arg1, out var arg2, out var writeParameterMode,startIndex:6);
+
+            Assert.That(arg1, Is.EqualTo(ParameterMode.Immediate));
+            Assert.That(arg2, Is.EqualTo(ParameterMode.Immediate));
+        }
+
     }
 }
