@@ -21,6 +21,10 @@ namespace Christmas.Day2
                     return new JumpIfTrueProgram(intCodeValidation);
                 case 6:
                     return new JumpIfFalseProgram(intCodeValidation);
+                case 7:
+                    return new LessThanProgram(intCodeValidation);
+                case 8:
+                    return new EqualToProgram(intCodeValidation);
             }
             throw new InvalidOpCodeException($"Opcode {opCode} not found.");
         }
