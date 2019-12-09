@@ -37,6 +37,10 @@ namespace Christmas.Day2
                 {
                     _diagnosticCode = logic.Process(output, startIndex);
                 }
+                else if (opCode == 5 || opCode == 6)
+                {
+                    logic.Process(output, startIndex);
+                }
                 else
                 {
                     output = (opCode == 3)

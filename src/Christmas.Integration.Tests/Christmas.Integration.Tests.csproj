@@ -51,6 +51,7 @@
     <Compile Include="Day2\Day2IntegrationTest.cs" />
     <Compile Include="Day3\Solution.cs" />
     <Compile Include="Day5\DayFixeDiagnisticsTest.cs" />
+    <Compile Include="Day5\JumpCodeProgramMultipleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

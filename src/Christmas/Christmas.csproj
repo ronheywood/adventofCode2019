@@ -60,6 +60,8 @@
     <Compile Include="Day4\PasswordValidation.cs" />
     <Compile Include="Day4\ValidPasswordFilter.cs" />
     <Compile Include="Day5\InvalidOpCodeException.cs" />
+    <Compile Include="Day5\JumpIfFalseProgram.cs" />
+    <Compile Include="Day5\JumpIfTrueProgram.cs" />
     <Compile Include="Day5\OutputProgram.cs" />
     <Compile Include="Day5\ParameterMode.cs" />
     <Compile Include="Day5\ProgramConfiguration.cs" />

@@ -98,6 +98,8 @@
     <Compile Include="Day4\ValidPasswordFilterTests.cs" />
     <Compile Include="Day5\ImmediateModeTests.cs" />
     <Compile Include="Day5\IntCodeProgramFactoryTests.cs" />
+    <Compile Include="Day5\JumpIfFalseProgramTests.cs" />
+    <Compile Include="Day5\JumpIfTrueProgramTests.cs" />
     <Compile Include="Day5\OutputProgramTests.cs" />
     <Compile Include="Day5\ProgramConfigurationTests.cs" />
     <Compile Include="Day5\TransposeProgramTests.cs" />
