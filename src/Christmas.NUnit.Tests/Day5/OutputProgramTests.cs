@@ -53,5 +53,12 @@ namespace Christmas.NUnit.Tests.Day5
             var program = "1,2,3,4,99,4,10,99,0,0,10";
             Assert.That(outputProgram.Process(program,5),Is.EqualTo("10"));
         }
+        [Test]
+        public void Should_respect_immediate_mode()
+        {
+            var program = "104,99,99";
+            var outputProgram = new OutputProgram(new IntCodeValidator());
+            Assert.That(outputProgram.Process(program,0), Is.EqualTo("99"));
+        }
     }
 }

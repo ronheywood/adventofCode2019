@@ -20,4 +20,31 @@ namespace Christmas.Integration.Tests.Day5
             Assert.That(diagnostics, Is.EqualTo(expected));
         }
     }
+    [TestFixture]
+    public class MultiProgramTest
+    {
+        private string program = @"3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31,
+            1106,0,36,98,0,0,1002,21,125,20,4,20,1105,1,46,104,
+            999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99";
+
+        private readonly RecursiveProgram _recursiveProgram = new RecursiveProgram(new IntCodeValidator(), new IntCodeProgramFactory());
+
+        [Test]
+        public void Larger_program_outputs_999_if_less_than_8()
+        {
+            Assert.That(_recursiveProgram.RunDiagnostics(7,program), Is.EqualTo("999"));
+        }
+
+        [Test]
+        public void Larger_program_outputs_1000_if_equal_to_8()
+        {
+            Assert.That(_recursiveProgram.RunDiagnostics(8, program), Is.EqualTo("1000"));
+        }
+
+        [Test]
+        public void Larger_program_outputs_1001_if_greater_than_8()
+        {
+            Assert.That(_recursiveProgram.RunDiagnostics(27,program), Is.EqualTo("1001"));
+        }
+    }
 }

@@ -22,6 +22,7 @@ namespace Christmas.Integration.Tests.Day5
         }
         
         public string LessThatPositional = "3,9,7,9,10,9,4,9,99,-1,8";
+        public string LessThatImmediate = "3,3,1107,-1,8,3,4,3,99";
         [TestCase(8,"0")]
         [TestCase(4,"1")]
         public void Test_less_than_expected_for_input(int input, string expected)
@@ -29,6 +30,10 @@ namespace Christmas.Integration.Tests.Day5
             var program = new RecursiveProgram(new IntCodeValidator(), new IntCodeProgramFactory());
             var diagnostics = program.RunDiagnostics(input,LessThatPositional);
             Assert.That(diagnostics, Is.EqualTo(expected));
+            
+            var diagnosticsImmediate = program.RunDiagnostics(input,LessThatImmediate);
+            Assert.That(diagnosticsImmediate, Is.EqualTo(expected));
         }
+
     }
 }

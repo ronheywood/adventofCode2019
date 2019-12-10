@@ -45,5 +45,11 @@ namespace Christmas.NUnit.Tests.Day2
             var m = new MultiplierProgram(new IntCodeValidator());
             Assert.That(m.Process(input), Is.EqualTo(expected));
         }
+        [TestCase("102,5,5,9,1,1,2,9,99,0","102,5,5,9,1,1,2,9,99,5")]
+        [TestCase("1102,5,5,9,1,1,2,9,99,0","1102,5,5,9,1,1,2,9,99,25")]
+        public void Should_support_immediate_mode(string input,string expected)
+        {
+            Assert.That(new MultiplierProgram(new IntCodeValidator()).Process(input, 0), Is.EqualTo(expected));
+        }
     }
 }

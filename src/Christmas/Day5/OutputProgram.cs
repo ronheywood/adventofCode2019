@@ -20,8 +20,10 @@ namespace Christmas.Day5
             if (!_intCodeValidator.Validate(program)) throw new Exception("Program input is invalid");
             _intCodeValidator.ValidateProgramConfiguration(program, startIndex, 4);
             var intList = _intCodeValidator.SplitString(program).ToArray();
-            var position = intList[startIndex + 1];
-            return intList[position].ToString();
+            ProgramConfiguration.GetParameterMode(program,out var position1,out var ignored,out var unused,startIndex);
+            _intCodeValidator.ExtractOrdinals(intList,out var i1,out var i2,out var pointer, startIndex);
+            var value = (position1 == ParameterMode.Immediate) ? intList[startIndex + 1] : intList[i1];
+            return value.ToString();
         }
 
         public string Process(string program, int input, int startIndex)

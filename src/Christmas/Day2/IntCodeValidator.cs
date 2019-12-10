@@ -24,8 +24,8 @@ namespace Christmas.Day2
         {
             var arr = intList.ToArray();
             o = arr[startIndex+ 1];
-            o1 = arr[startIndex+ 2];
-            o2 = arr[startIndex+ 3];
+            o1 = (arr.Length > startIndex+2) ? arr[startIndex+ 2] : 0;
+            o2 = (arr.Length > startIndex+3) ? arr[startIndex+ 3] : 0;
         }
 
         public IEnumerable<int> SplitString(string input) => input.Split(',').Select(s => int.TryParse(s, out var number) ? number : 0);

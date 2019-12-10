@@ -54,6 +54,12 @@ namespace Christmas.NUnit.Tests.Day2
             var expected = "1,5,5,0,1,1,2,9,99,10";
             Assert.That(new AdderProgram(new IntCodeValidator()).Process(input,4), Is.EqualTo(expected));
         }
+        [TestCase("101,5,5,9,1,1,2,9,99,0","101,5,5,9,1,1,2,9,99,6")]
+        [TestCase("1101,5,5,9,1,1,2,9,99,0","1101,5,5,9,1,1,2,9,99,10")]
+        public void Should_support_immediate_mode(string input,string expected)
+        {;
+            Assert.That(new AdderProgram(new IntCodeValidator()).Process(input, 0), Is.EqualTo(expected));
+        }
     }
 
     public class ValidatorSpy : IntCodeValidator
