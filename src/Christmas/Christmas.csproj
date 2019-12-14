@@ -68,6 +68,9 @@
     <Compile Include="Day5\ParameterMode.cs" />
     <Compile Include="Day5\ProgramConfiguration.cs" />
     <Compile Include="Day5\TransposeProgram.cs" />
+    <Compile Include="Day6\IOrbitingBody.cs" />
+    <Compile Include="Day6\OrbitMap.cs" />
+    <Compile Include="Day6\OrbitingBody.cs" />
     <Compile Include="Helpers\AdventStringConverter.cs" />
     <Compile Include="Helpers\IStringConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

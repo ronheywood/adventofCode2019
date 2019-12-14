@@ -23,3 +23,5 @@ C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\TestData\day
 C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\FakeItEasy.dll
 C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\FakeItEasy.pdb
 C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\FakeItEasy.xml
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\TestData\Day6.txt
+C:\Kata\AdventOfCode\2019\src\Christmas.Integration.Tests\bin\Debug\TestData\day6.unit.txt
